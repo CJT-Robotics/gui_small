@@ -2,7 +2,7 @@
 #define SUBSCRIBER_H
 
 
-void initSubscriber(int argc, char *argv[]);
+void initNode(int argc, char *argv[]);
 
 
 #endif

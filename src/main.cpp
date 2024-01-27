@@ -1,36 +1,28 @@
-
-
 #include "DataRepository.h"
 #include "window.h"
 #include "synchronization.h"
 #include <thread>
-#include "publisher.h"
-#include "subscriber.h"
+#include "transferNode.h"
 
 void launchWindow(){
     initWindow();
 }
 
-void launchPublisher(int argc, char *argv[]){
-    initPublisher(argc,argv);
-}
 
-void launchSubscriber(int argc, char *argv[]){
-    initSubscriber(argc,argv);
+void launchNode(int argc, char *argv[]){
+    initNode(argc,argv);
 }
 
 int main(int argc, char *argv[]){
 
     std::thread window(launchWindow);
-    std::thread publisher(launchPublisher,argc,argv);
-    std::thread subscriber(launchSubscriber,argc,argv);
+    std::thread node(launchNode,argc,argv);
 
     printLine("All threads up and running!");
+    printLine("Close window & strg+c for complete shutdown!");
 
     window.join();
-    publisher.join();
-    subscriber.join();
-
+    node.join();
     printLine("<<<Shutdown>>>");
 
     return 0;
