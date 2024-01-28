@@ -61,7 +61,6 @@ void initWindow(){
         newFrame(window,io);
     }
     shutdown(window,io);
-    return 0;
 }
 
 void shutdown(GLFWwindow* window, ImGuiIO &io){
