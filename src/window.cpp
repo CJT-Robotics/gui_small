@@ -37,7 +37,7 @@ void initWindow(){
 
 
 
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "Dear ImGui GLFW+OpenGL3 example", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(1280, 360, "CJT-Robotics GUI", nullptr, nullptr);
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1); 
 
@@ -53,6 +53,7 @@ void initWindow(){
     //ImGui::StyleColorsLight();
 
 
+
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
@@ -60,6 +61,7 @@ void initWindow(){
         newFrame(window,io);
     }
     shutdown(window,io);
+    return 0;
 }
 
 void shutdown(GLFWwindow* window, ImGuiIO &io){
@@ -71,6 +73,22 @@ void shutdown(GLFWwindow* window, ImGuiIO &io){
     glfwTerminate();
 }
 
+ImGuiWindowFlags getStatWindowFlags(){
+    ImGuiWindowFlags window_flags = 0;
+    window_flags |= ImGuiWindowFlags_AlwaysAutoResize;
+
+    return window_flags;
+}
+
+void drawStat(){
+    ImGui::Begin("Statistics",NULL,getStatWindowFlags());
+
+
+
+    ImGui::End();
+}
+
+
 void newFrame(GLFWwindow* window, ImGuiIO &io){
 
     glfwPollEvents();
@@ -79,11 +97,10 @@ void newFrame(GLFWwindow* window, ImGuiIO &io){
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
+    
+    //ImGui::ShowDemoWindow();
 
-    ImGui::Begin("Hello, world!"); 
-    ImGui::SameLine();
-    ImGui::Text("counter");
-    ImGui::End();
+    drawStat();
 
 
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
