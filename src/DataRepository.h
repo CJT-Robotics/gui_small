@@ -7,6 +7,8 @@
 class DataRepository{
     private:
         static DataRepository* instance;
+        bool onExit;
+        std::mutex onExitMutex;
         static std::mutex mu;
         DataRepository();
         //DataRepository(DataRepository const&) = delete;
@@ -17,7 +19,8 @@ class DataRepository{
 
     public:
         static DataRepository& getInstance();
-
+        void exit();
+        bool getExitStatus();
         //secondary thread-safe get-set functions
 
 };
