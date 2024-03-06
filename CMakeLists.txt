@@ -35,7 +35,7 @@ imgui/imgui_tables.cpp
 add_executable(gui_small src/main.cpp src/DataRepository.cpp  
 src/synchronization.cpp src/window.cpp src/transferNode.cpp src/controller_stationary.cpp)
 
-target_link_libraries(gui_small  imgui -lglfw -lOpenGL)
+target_link_libraries(gui_small  imgui glfw OpenGL)
 
 
 install(TARGETS
@@ -59,7 +59,7 @@ if(BUILD_TESTING)
   ament_target_dependencies(${PROJECT_NAME}_tutorial_test
     std_msgs 
   )
-  
+
   target_link_libraries(${PROJECT_NAME}_tutorial_test)
 endif()
 
