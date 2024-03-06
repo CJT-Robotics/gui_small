@@ -71,8 +71,7 @@ void openConnection(){
     printf("js0");
 
     if (js == -1 || get_axis_count(js) != 6 || get_button_count(js) != 12){
-        perror("Could not open joystick ODER DU HAST DEN FALSCHEN JOYSTICK GENOMMEN!!!!!!" +  
-        "[der silberne gro0e mit Knüppel]");
+        perror("Could not open joystick ODER DU HAST DEN FALSCHEN JOYSTICK GENOMMEN!!!!!! \n[der silberne gro0e mit Knüppel]");
     }
 
     
