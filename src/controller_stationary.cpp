@@ -14,6 +14,7 @@ using namespace std;
 
 struct axis_state {
     short x, y;
+    axis_state():x(0),y(0){}
 };
 
 void openConnection();
@@ -64,7 +65,7 @@ void initControlerStationary(){
 
 void openConnection(){
     struct js_event event;
-    struct axis_state axes[6] = {0};
+    struct axis_state axes[6];
 
     
     int js = open("/dev/input/js0", O_RDONLY);
