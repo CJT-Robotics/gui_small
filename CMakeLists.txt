@@ -32,6 +32,8 @@ imgui/imgui_widgets.cpp
 imgui/imgui_tables.cpp
 )
 
+link_directories(lib
+
 add_executable(gui_small src/main.cpp src/DataRepository.cpp  
 src/synchronization.cpp src/window.cpp src/transferNode.cpp src/controller_stationary.cpp)
 
@@ -40,6 +42,8 @@ target_link_libraries(gui_small  imgui -lglfw -lOpenGL)
 
 install(TARGETS
   gui_small
+
+  DIRECTORY lib/
   DESTINATION lib/${PROJECT_NAME})
 
 
