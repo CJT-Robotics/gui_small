@@ -68,7 +68,7 @@ void openConnection(){
     struct axis_state axes[6];
 
     
-    int js = open("/dev/input/js0", O_RDONLY);
+    int js = open("/dev/input/logitech_controller", O_RDONLY);
     printf("js0");
 
     if (js == -1 || get_axis_count(js) != 6 || get_button_count(js) != 12){
