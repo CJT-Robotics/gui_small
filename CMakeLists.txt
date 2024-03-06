@@ -32,7 +32,6 @@ imgui/imgui_widgets.cpp
 imgui/imgui_tables.cpp
 )
 
-link_directories(lib
 
 add_executable(gui_small src/main.cpp src/DataRepository.cpp  
 src/synchronization.cpp src/window.cpp src/transferNode.cpp src/controller_stationary.cpp)
