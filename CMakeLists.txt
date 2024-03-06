@@ -41,8 +41,6 @@ target_link_libraries(gui_small  imgui -lglfw -lOpenGL)
 
 install(TARGETS
   gui_small
-
-  DIRECTORY lib/
   DESTINATION lib/${PROJECT_NAME})
 
 
