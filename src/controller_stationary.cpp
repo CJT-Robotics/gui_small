@@ -68,7 +68,7 @@ void openConnection(){
 
     
     int js = open("/dev/input/js0", O_RDONLY);
-    printf("js0")
+    printf("js0");
 
     if (js == -1 || get_axis_count(js) != 6 || get_button_count(js) != 12){
         perror("Could not open joystick ODER DU HAST DEN FALSCHEN JOYSTICK GENOMMEN!!!!!!" +  
