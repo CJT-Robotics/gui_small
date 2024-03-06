@@ -37,10 +37,12 @@ src/synchronization.cpp src/window.cpp src/transferNode.cpp src/controller_stati
 
 target_link_libraries(gui_small  imgui -lglfw -lOpenGL)
 
+install(TARGETS imgui
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
 
-install(TARGETS
-  gui_small
-  DESTINATION lib/${PROJECT_NAME})
 
 
 ament_target_dependencies(gui_small rclcpp std_msgs)
