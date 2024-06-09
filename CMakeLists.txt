@@ -22,6 +22,9 @@ include_directories(
   ${BACKEND_DIR}
 )
 
+find_package(glfw3 3.3 REQUIRED)
+find_package(OpenGL REQUIRED)
+
 add_library(imgui SHARED
 backends/imgui_impl_opengl3.cpp 
 backends/imgui_impl_glfw.cpp
@@ -36,7 +39,10 @@ imgui/imgui_tables.cpp
 add_executable(gui_small src/main.cpp src/DataRepository.cpp  
 src/synchronization.cpp src/window.cpp src/transferNode.cpp src/controller_stationary.cpp)
 
-target_link_libraries(gui_small  imgui -lglfw -lOpenGL)
+
+target_link_libraries(gui_small PRIVATE imgui glfw OpenGL::GL)
+
+#target_link_libraries(gui_small  imgui -lglfw -lOpenGL)
 
 
 install(TARGETS
